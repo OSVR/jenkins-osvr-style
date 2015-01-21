@@ -1,11 +1,29 @@
+
+$header-background: #a7a9ac;
+$header-background-bottom: #dcddde;
+$logo: "http://resource.osvr.com/ci/osvr-ci-logo.png";
+
+#header {
+	background: $header-background;
+	background: -moz-linear-gradient(top, $header-background 0%, $header-background-bottom 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$header-background), color-stop(100%,$header-background-bottom));
+	background: -webkit-linear-gradient(top, $header-background 0%,$header-background-bottom 100%);
+	background: -o-linear-gradient(top, $header-background 0%,$header-background-bottom 100%);
+	background: -ms-linear-gradient(top, $header-background 0%,$header-background-bottom 100%);
+	background: linear-gradient(top, $header-background 0%,$header-background-bottom 100%);
+	.login {
+		a {
+			color: #FF8000;
+		}
+	}
+}
+/*
 $headings-color: #4f7b94;
 $body-background: #63818A;
 $body-background-bottom: #73939B;
 $candy-stripe1: #fff;
 $candy-stripe2: #e5e5e5;
 $candy-stripe-hover: #f0f0f0;
-$logo: "http://resource.osvr.com/ci/osvr-ci-logo.png";
-
 body {
 	background: $body-background;
 	background: -moz-linear-gradient(top, $body-background 0%, $body-background-bottom 100%);
@@ -19,7 +37,6 @@ body {
 h1, h2, h3, h4, h5, h6{
   color: $headings-color;
 }
-
 #top-panel{
 	background: none;
 	td#login-field {
@@ -49,6 +66,7 @@ h1, h2, h3, h4, h5, h6{
     }
   }
 }
+/*
 #projectstatus {
 	background: #fff;
   tr{
@@ -120,3 +138,4 @@ h1, h2, h3, h4, h5, h6{
     }
   }
 }
+*/
