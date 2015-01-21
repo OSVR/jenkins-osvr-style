@@ -1,6 +1,6 @@
 require 'rake/clean'
 
-task default: %w[dev]
+task default: %w[production]
 
 file_stem = 'jenkins-osvr-style'
 out_dir = '_site/'
