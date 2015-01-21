@@ -3,3 +3,4 @@
 *.css
 *.css.map
 _site/*
+_publish/*
