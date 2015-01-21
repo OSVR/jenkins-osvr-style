@@ -1,5 +1,4 @@
 jQuery(document).ready(function() {
   var $ = jQuery;
-  $('#jenkins-home-link').append('<span id="#header-title">Continuous Integration</span>');
-  $('.logo img').remove();
+  $('#jenkins-home-link').html('<img alt="title" src="http://resource.osvr.com/ci/osvr-ci-logo.png"> Continuous Integration');
 });
