@@ -2,6 +2,12 @@
 $header-background: #a7a9ac;
 $header-background-bottom: #dcddde;
 $logo: "http://resource.osvr.com/ci/osvr-ci-logo.png";
+$logo-height: 37px;
+$logo-width: 37px;
+$logo-margin: 10px;
+
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,600);
+$display-font-stack: "Titillium Web", Helvetica, Arial;
 
 #header {
 	background: $header-background;
@@ -13,129 +19,23 @@ $logo: "http://resource.osvr.com/ci/osvr-ci-logo.png";
 	background: linear-gradient(top, $header-background 0%,$header-background-bottom 100%);
 	.login {
 		a {
-			color: #FF8000;
+			color: #333;
 		}
 	}
-}
-/*
-$headings-color: #4f7b94;
-$body-background: #63818A;
-$body-background-bottom: #73939B;
-$candy-stripe1: #fff;
-$candy-stripe2: #e5e5e5;
-$candy-stripe-hover: #f0f0f0;
-body {
-	background: $body-background;
-	background: -moz-linear-gradient(top, $body-background 0%, $body-background-bottom 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$body-background), color-stop(100%,$body-background-bottom));
-	background: -webkit-linear-gradient(top, $body-background 0%,$body-background-bottom 100%);
-	background: -o-linear-gradient(top, $body-background 0%,$body-background-bottom 100%);
-	background: -ms-linear-gradient(top, $body-background 0%,$body-background-bottom 100%);
-	background: linear-gradient(top, $body-background 0%,$body-background-bottom 100%);
+	height: $logo-height + 2 * $logo-margin;
 }
 
-h1, h2, h3, h4, h5, h6{
-  color: $headings-color;
-}
-#top-panel{
-	background: none;
-	td#login-field {
-		span {
-			a {
-				background:none;
-			}
-		}
-	}
-  td {
-		#searchform {
-			a {
-				background:none;
-				height: auto;
-				width: auto;
-			}
-		}
-    &>a {
-			background:url($logo) 0 0 no-repeat;
-			display:block;
-			width: 37px;
-			height: 37px;
-			margin: 10px 0 10px 10px;
-      img {
-        display:none;
-      }
-    }
-  }
-}
-/*
-#projectstatus {
-	background: #fff;
-  tr{
-    &:nth-of-type(odd) {
-      background-color:$candy-stripe2;
-      &:hover{
-        background-color: $candy-stripe-hover;
-      }
-    }
-    &:nth-of-type(even) {
-      background-color:$candy-stripe1;
-      &:hover{
-        background-color: $candy-stripe-hover;
-      }
-    }
-  }
-}
-#left-top-nav {
-	border-left: none;
-}
-
-#side-panel{
-  background-color: #fff;
-  >div:not(#navigation){
-    display: none;
-  }
-  .task{
-    a{
-      display: inline-block;
-      text-decoration: none;
-      width: 10%;
-      &+a{
-        width: 83%;
-        padding: 4px;
-        &:hover{
-          background-color: $candy-stripe2;
-        }
-      }
-      &:hover{
-        text-decoration: underline
-      }
-    }
-  }
-}
-#main-panel {
-	background:#fff;
-  &>h1{
-    margin-top: 0;
-  }
-}
-#main-table {
-	border-top:0;
-	border-bottom:0;
-}
-#description {
-	div {
-	font-size: 1.3em;
+.logo {
+	&>a {
+		background:url($logo) 0 0 no-repeat;
+		display:block;
+		width: $logo-width;
+		height: $logo-height + $logo-margin;
+		margin: $logo-margin 0 $logo-margin $logo-margin;
 	}
 }
-#footer {
-	border-top:1px solid #ccc;
+#jenkins-name-icon::before {
+	content: "Continuous Integration";
+	font: 300 18px/22px $display-font-stack;
+	color: #888;
 }
-#view-message{
-  #description{
-    a{
-      img{
-        padding-right: 4px;
-      }
-    }
-  }
-}
-*/
