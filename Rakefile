@@ -10,6 +10,7 @@ generated_extensions.each do |ext|
   CLEAN << "#{file_stem}.#{ext}"
   CLEAN << "#{out_dir}#{file_stem}.#{ext}"
 end
+CLEAN << "#{out_dir}"
 
 output_extensions = %w[css js]
 
