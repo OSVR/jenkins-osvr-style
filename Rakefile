@@ -22,7 +22,7 @@ end
 desc "Build for local development"
 task :dev => :force_sass do
   pids = [
-    spawn("sass --style expanded --watch #{file_stem}.scss:#{file_stem}.css"),
+    spawn( sass_cmd :style=>:expanded, :flags=>[:watch], :stem=>file_stem),
     spawn("ruby -run -ehttpd . -p8000")
   ]
 
@@ -43,7 +43,7 @@ task :production => output_extensions.map{|ext| "#{out_dir}#{file_stem}.#{ext}"}
 directory out_dir
 
 file "#{out_dir}#{file_stem}.css" => ["#{file_stem}.scss", out_dir] do |t|
-  system "sass --style compressed #{t.prerequisites[0]}:#{t.name}"
+  system sass_cmd :task=>t, :style=>:compressed
 end
 
 file "#{out_dir}#{file_stem}.js" => ["#{file_stem}.js", out_dir] do |t|
