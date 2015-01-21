@@ -4,3 +4,4 @@
 *.css.map
 _site/
 _publish/
+vendor/bundle/
