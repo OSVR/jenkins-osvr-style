@@ -4,7 +4,7 @@ $body-background-bottom: #73939B;
 $candy-stripe1: #fff;
 $candy-stripe2: #e5e5e5;
 $candy-stripe-hover: #f0f0f0;
-$logo: "http://xrono.isotope11.com/system/site_logos/1/original/isotope_logo.png?1330143115";
+$logo: "http://resource.osvr.com/ci/osvr-ci-logo.png";
 
 body {
 	background: $body-background;
@@ -40,8 +40,8 @@ h1, h2, h3, h4, h5, h6{
     &>a {
 			background:url($logo) 0 0 no-repeat;
 			display:block;
-			width: 130px;
-			height: 40px;
+			width: 37px;
+			height: 37px;
 			margin: 10px 0 10px 10px;
       img {
         display:none;
