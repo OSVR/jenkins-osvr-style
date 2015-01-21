@@ -4,11 +4,55 @@ $header-background-bottom: #dcddde;
 $logo-height: 37px;
 $logo-width: 37px;
 $logo-margin: 10px;
-$header-link-color: #333;
+$orange: #FF8000;
+//$dark-orange: darken($orange, 20%);
+$pale-orange: lighten($orange, 20%);
+$paler-orange: lighten($orange, 40%);
 
-@import url(http://fonts.googleapis.com/css?family=Titillium+Web:600);
+$dark-grey: #333;
+$header-link-color: $dark-grey;
+
+$button-text-color: $dark-grey;
+
+$heavy: 600;
+$regular: 400;
+
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,600);
 $display-font-stack: "Titillium Web", Helvetica, Arial;
 
+%display-font {
+	font-family: $display-font-stack;
+}
+%font-heavy {
+	@extend %display-font;
+	font-weight: $heavy;
+}
+%font-regular {
+	@extend %display-font;
+	font-weight: $regular;
+}
+%font-sz-small {
+	font-size: 12px;
+	line-height: 14px;
+}
+%font-sz-normal {
+	font-size: 14px;
+	line-height: 16px;
+}
+%font-sz-big {
+	font-size: 16px;
+	line-height: 18px;
+}
+%font-sz-biggest {
+	font-size: 22px;
+	line-height: 26px;
+}
+
+%header-text-coloring {
+	color: $header-link-color;
+	text-decoration: none;
+}
+/// Header bar
 #header {
 	background: $header-background;
 	background: -moz-linear-gradient(top, $header-background 0%, $header-background-bottom 100%);
@@ -18,13 +62,18 @@ $display-font-stack: "Titillium Web", Helvetica, Arial;
 	background: -ms-linear-gradient(top, $header-background 0%,$header-background-bottom 100%);
 	background: linear-gradient(top, $header-background 0%,$header-background-bottom 100%);
 
-	color: $header-link-color;
+	padding-top: $logo-margin;
+	padding-bottom: $logo-margin;
+
+	@extend %header-text-coloring;
 	a {
-		color: $header-link-color;
+		@extend %header-text-coloring;
 	}
 	.login {
+		@extend %font-heavy;
+		@extend %font-sz-normal;
 		a {
-			//color: $header-link-color;
+			@extend %header-text-coloring;
 		}
 	}
 	height: $logo-height + 2 * $logo-margin;
@@ -35,24 +84,61 @@ $display-font-stack: "Titillium Web", Helvetica, Arial;
 		width: auto;
 		height: $logo-height + $logo-margin;
 	}
-	/*
-	&>a {
-		background:url($logo) 0 0 no-repeat;
-		display:block;
-		//width: $logo-width;
-		height: $logo-height + $logo-margin;
-		margin: $logo-margin 0 $logo-margin $logo-margin;
-	}
-	*/
 	&>img {
 		display: none;
 	}
 }
 
 #jenkins-home-link {
-	font: 600 22px/26px $display-font-stack;
-	//color: $header-link-color;
+	@extend %font-heavy;
+	@extend %font-sz-biggest;
 	&>a {
 		text-decoration: none;
 	}
+}
+/// End of header bar stuff
+
+/// Top and bottom nav bars
+#breadcrumbBar, #footer-container, .top-sticker-inner {
+	background-color: $paler-orange;
+}
+
+/// Attempt to handle hover on the menu
+#breadcrumbs LI:hover, A.breadcrumbBarAnchor.mouseIsOverMenuSelector {
+	background-color: $pale-orange;
+}
+
+/// Make buttons orange
+#jenkins .yui-button.primary button {
+	background-color: $orange;
+	border-color: $pale-orange;
+	color: $button-text-color;
+}
+
+/// Font for headers and other fancy text
+h1 {
+	@extend %font-heavy;
+}
+.task {
+	@extend %font-regular;
+	@extend %font-sz-big;
+}
+.top-sticker, .yuimenuitem {
+	@extend %font-regular;
+	@extend %font-sz-normal;
+}
+#footer {
+	@extend %font-regular;
+	@extend %font-sz-small;
+}
+
+/// Fix locations
+.bottom-sticker-inner {
+	padding: 1em 0 3em;
+}
+.fixedGridLayout #main-panel {
+	margin-top: 30px;
+}
+.fixedGridLayout #side-panel {
+	margin-top: 30px;
 }
