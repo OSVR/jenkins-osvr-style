@@ -69,6 +69,9 @@ namespace :publishing do
       `git ls-files`.split("\n").each do |fn|
         rm fn.strip
       end
+
+      # Needed as a dummy file.
+      touch "index.html"
     end
   end
 
