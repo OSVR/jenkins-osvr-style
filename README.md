@@ -4,6 +4,10 @@ Forked from <https://github.com/isotope11/jenkins-isotope-style> for OSVR, and h
 For use with Jenkins and the [Jenkins Simple Theme Plugin][simple_theme].
 
 ### Development
+To get Bundler rolling, run:
+
+    rake bundle
+
 To run a one-off build for dev mode, run:
 
     rake dev
@@ -26,12 +30,12 @@ The following things are required to develop/publish to GitHub Pages (not needed
 
 - `ruby` (and `gem`)
 - `rake`
-- `sass`
+- `bundler`
 
 On a recent Debian/Ubuntu, something like
 
 ```sh
-sudo apt-get install --no-install-recommends rake ruby-sass
+sudo apt-get install --no-install-recommends rake bundler ruby-dev
 ```
 
 should get the job done.

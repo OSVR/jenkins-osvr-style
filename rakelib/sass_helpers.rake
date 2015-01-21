@@ -1,3 +1,5 @@
+SASS_CMD = 'bundler exec sass'
+
 def sass_cmd(options = {})
   t = options.delete :task
   if t
@@ -21,7 +23,7 @@ def sass_cmd(options = {})
     ["--#{key.to_s}", val.to_s]
   end
 
-  cmd = "sass #{args.join " "} #{input}:#{output}"
+  cmd = "#{SASS_CMD} #{args.join " "} #{input}:#{output}"
   puts cmd
   cmd
 end

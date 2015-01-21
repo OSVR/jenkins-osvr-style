@@ -14,18 +14,23 @@ CLEAN << "#{out_dir}"
 
 output_extensions = %w[css js]
 
+desc "Install the required gems locally with Bundler"
+task :bundle do
+  sh "bundler install --path vendor/bundle"
+end
+
 desc "Force a Sass rebuild"
 task :force_sass do
   touch "#{file_stem}.scss"
 end
 
 desc "Build for local development"
-task :dev => :force_sass do
+task :dev => [:force_sass, :bundle] do
   sh sass_cmd :style=>:expanded,:stem=>file_stem
 end
 
 desc "Watch for changes and launch a web server for development"
-task :watch => :dev do
+task :watch => [:dev, :bundle] do
   pids = [
     spawn( sass_cmd :style=>:expanded, :flags=>[:watch], :stem=>file_stem),
     #spawn("ruby -run -ehttpd . -p80")
@@ -45,7 +50,7 @@ task :watch => :dev do
 end
 
 desc "Build for production"
-task :production => ([:force_sass].concat output_extensions.map{|ext| "#{out_dir}#{file_stem}.#{ext}"})
+task :production => ([:force_sass, :bundle].concat output_extensions.map{|ext| "#{out_dir}#{file_stem}.#{ext}"})
 
 desc "Publish to GitHub pages"
 task :publish => [:production] do
@@ -55,7 +60,7 @@ end
 ## Actual compilation tasks
 directory out_dir
 
-file "#{out_dir}#{file_stem}.css" => ["#{file_stem}.scss", out_dir] do |t|
+file "#{out_dir}#{file_stem}.css" => ["#{file_stem}.scss", out_dir, :bundle] do |t|
   system sass_cmd :task=>t, :style=>:compressed
 end
 
