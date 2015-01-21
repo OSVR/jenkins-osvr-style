@@ -28,8 +28,11 @@ desc "Watch for changes and launch a web server for development"
 task :watch => :dev do
   pids = [
     spawn( sass_cmd :style=>:expanded, :flags=>[:watch], :stem=>file_stem),
-    spawn("ruby -run -ehttpd . -p8000")
+    #spawn("ruby -run -ehttpd . -p80")
   ]
+  cd '..' do
+    pids << spawn("ruby -run -ehttpd . -p80")
+  end
 
   trap "INT" do
     Process.kill "INT", *pids
