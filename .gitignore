@@ -2,5 +2,5 @@
 *.sw*
 *.css
 *.css.map
-_site/*
-_publish/*
+_site/
+_publish/
