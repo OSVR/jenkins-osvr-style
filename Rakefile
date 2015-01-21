@@ -39,9 +39,8 @@ end
 desc "Build for production"
 task :production => output_extensions.map{|ext| "#{out_dir}#{file_stem}.#{ext}"}
 
-directory out_dir do |t|
-  mkdir_p t.name
-end
+## Actual compilation tasks
+directory out_dir
 
 file "#{out_dir}#{file_stem}.css" => ["#{file_stem}.scss", out_dir] do |t|
   system "sass --style compressed #{t.prerequisites[0]}:#{t.name}"
