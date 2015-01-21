@@ -1,4 +1,4 @@
-SASS_CMD = 'bundler exec sass'
+SASS_CMD = 'bundle exec sass'
 
 def sass_cmd(options = {})
   t = options.delete :task

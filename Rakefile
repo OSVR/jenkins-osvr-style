@@ -16,7 +16,7 @@ output_extensions = %w[css js]
 
 desc "Install the required gems locally with Bundler"
 task :bundle do
-  sh "bundler install --path vendor/bundle"
+  sh "bundle install --path vendor/bundle"
 end
 
 desc "Force a Sass rebuild"
