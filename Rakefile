@@ -42,7 +42,7 @@ task :watch => :dev do
 end
 
 desc "Build for production"
-task :production => output_extensions.map{|ext| "#{out_dir}#{file_stem}.#{ext}"}
+task :production => ([:force_sass].concat output_extensions.map{|ext| "#{out_dir}#{file_stem}.#{ext}"})
 
 ## Actual compilation tasks
 directory out_dir
