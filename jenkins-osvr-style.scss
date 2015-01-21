@@ -1,12 +1,12 @@
 
 $header-background: #a7a9ac;
 $header-background-bottom: #dcddde;
-$logo: "http://resource.osvr.com/ci/osvr-ci-logo.png";
 $logo-height: 37px;
 $logo-width: 37px;
 $logo-margin: 10px;
+$header-link-color: #333;
 
-@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,600);
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:600);
 $display-font-stack: "Titillium Web", Helvetica, Arial;
 
 #header {
@@ -17,9 +17,14 @@ $display-font-stack: "Titillium Web", Helvetica, Arial;
 	background: -o-linear-gradient(top, $header-background 0%,$header-background-bottom 100%);
 	background: -ms-linear-gradient(top, $header-background 0%,$header-background-bottom 100%);
 	background: linear-gradient(top, $header-background 0%,$header-background-bottom 100%);
+
+	color: $header-link-color;
+	a {
+		color: $header-link-color;
+	}
 	.login {
 		a {
-			color: #333;
+			//color: $header-link-color;
 		}
 	}
 	height: $logo-height + 2 * $logo-margin;
@@ -27,15 +32,27 @@ $display-font-stack: "Titillium Web", Helvetica, Arial;
 
 .logo {
 	&>a {
+		width: auto;
+		height: $logo-height + $logo-margin;
+	}
+	/*
+	&>a {
 		background:url($logo) 0 0 no-repeat;
 		display:block;
-		width: $logo-width;
+		//width: $logo-width;
 		height: $logo-height + $logo-margin;
 		margin: $logo-margin 0 $logo-margin $logo-margin;
 	}
+	*/
+	&>img {
+		display: none;
+	}
 }
-#jenkins-name-icon::before {
-	content: "Continuous Integration";
-	font: 300 18px/22px $display-font-stack;
-	color: #888;
+
+#jenkins-home-link {
+	font: 600 22px/26px $display-font-stack;
+	//color: $header-link-color;
+	&>a {
+		text-decoration: none;
+	}
 }
