@@ -61,7 +61,7 @@ end
 directory out_dir
 
 file "#{out_dir}#{file_stem}.css" => ["#{file_stem}.scss", out_dir, :bundle] do |t|
-  system sass_cmd :task=>t, :style=>:compressed
+  sh sass_cmd :task=>t, :style=>:compressed
 end
 
 file "#{out_dir}#{file_stem}.js" => ["#{file_stem}.js", out_dir] do |t|
