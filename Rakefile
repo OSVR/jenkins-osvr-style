@@ -58,10 +58,10 @@ end
 production_files = generated_extensions.map{|ext| output_for "#{file_stem}.#{ext}"}
 
 desc "Build for production"
-task :production => ([:force_sass, :bundle].concat production_files)
+task :production => ([:bundle].concat production_files)
 
 desc "Publish to GitHub pages"
-task :publish => [:production] do
+task :publish => [:force_sass, :production] do
   task("publishing:publish").invoke(OUT_DIR)
 end
 
