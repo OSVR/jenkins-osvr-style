@@ -20,7 +20,7 @@ def sass_cmd(options = {})
 
   args << options.delete(:flags).map {|flag| "--#{flag.to_s}"} if options.has_key? :flags
   args << options.map do |key, val|
-    ["--#{key.to_s}", val.to_s]
+    "--#{key.to_s}=#{val.to_s}"
   end
 
   cmd = "#{SASS_CMD} #{args.join " "} #{input}:#{output}"
