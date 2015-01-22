@@ -136,9 +136,7 @@ h1 {
 .bottom-sticker-inner {
 	padding: 1em 0 3em;
 }
-.fixedGridLayout #main-panel {
-	margin-top: 30px;
-}
-.fixedGridLayout #side-panel {
-	margin-top: 30px;
+
+#page-body.fixedGridLayout {
+	top: 90px;
 }
